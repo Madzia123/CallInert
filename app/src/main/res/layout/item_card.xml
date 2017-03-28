@@ -17,14 +17,13 @@
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Magdalena "
-            android:textColor="@android:color/black" />
+           />
 
         <TextView
             android:id="@+id/surnameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor=" @android:color/black" />
+             />
 
 
     </LinearLayout>

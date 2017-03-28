@@ -53,12 +53,19 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
     public void addPerson(Person person) {
 
         int position = getItemCount();
+        personList.add(position, person);
+        notifyDataSetChanged();
 
     }
 
     @Override
     public int getItemCount() {
-        return personList.size();
+
+        if (personList.size() == 0) {
+            return 1;
+        } else {
+            return personList.size();
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
