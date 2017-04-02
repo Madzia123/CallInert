@@ -3,7 +3,6 @@ package magdalena.pl.callmistake;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.EditText;
 
 import butterknife.BindView;
@@ -20,6 +19,8 @@ public class PersonActivity extends AppCompatActivity {
     EditText phoneEditText;
     @BindView(R.id.editText)
     EditText editText;
+    @BindView(R.id.surnameEditText)
+    EditText surnameEditText;
 
 
     @Override
@@ -33,14 +34,15 @@ public class PersonActivity extends AppCompatActivity {
     public void onClick() {
 
         String name = nameEditText.getText().toString();
+        String surname = surnameEditText.getText().toString();
         String email = emailEditText.getText().toString();
         String phone = phoneEditText.getText().toString();
         String description = editText.getText().toString();
 
-        Person person = new Person(name, email, phone, description);
+        Person person = new Person(name,surname, email, phone, description);
         Intent intent = new Intent(this, Stage3Activity.class);
         intent.putExtra("person", person);
-        startActivity(intent);
+        startActivityForResult(intent,3);
 
     }
 }

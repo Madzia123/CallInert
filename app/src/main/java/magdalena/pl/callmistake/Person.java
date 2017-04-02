@@ -12,16 +12,38 @@ public class Person implements Parcelable
 {
 
     private String name;
+    private String surname;
     private String email;
     private String phone;
     private String description;
 
-    public String getName() {
-        return name;
+    protected Person(Parcel in) {
+        name = in.readString();
+        surname = in.readString();
+        email = in.readString();
+        phone = in.readString();
+        description = in.readString();
+    }
+
+
+    public Person(String name, String surname, String email, String phone, String description) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.description = description;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getEmail() {
@@ -52,20 +74,6 @@ public class Person implements Parcelable
         return CREATOR;
     }
 
-    public Person(String name, String email, String phone, String description) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.description = description;
-    }
-
-    protected Person(Parcel in) {
-        name = in.readString();
-        email = in.readString();
-        phone = in.readString();
-        description = in.readString();
-    }
-
     public static final Creator<Person> CREATOR = new Creator<Person>() {
         @Override
         public Person createFromParcel(Parcel in) {
@@ -78,6 +86,10 @@ public class Person implements Parcelable
         }
     };
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -86,9 +98,9 @@ public class Person implements Parcelable
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
+        parcel.writeString(surname);
         parcel.writeString(email);
         parcel.writeString(phone);
         parcel.writeString(description);
     }
-
 }

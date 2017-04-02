@@ -15,7 +15,7 @@ public class Stage3Activity extends AppCompatActivity {
 
     @BindView(R.id.emailTextView)
     TextView emailTextView;
-    Person person = getIntent().getParcelableExtra("person");
+    Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class Stage3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_stage3);
         ButterKnife.bind(this);
 
+        person = getIntent().getParcelableExtra("person");
 
         emailTextView.setText(person.getEmail());
     }
@@ -30,6 +31,7 @@ public class Stage3Activity extends AppCompatActivity {
     @OnClick(R.id.buttonNextButton)
     public void onClick() {
         Intent data = new Intent();
+        data.putExtra("DataPerson",person);
         setResult(RESULT_OK, data);
         finish();
     }
