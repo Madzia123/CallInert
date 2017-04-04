@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     public List<Person> personList = new ArrayList<>();
 
-
+    Person person;
     private LayoutInflater layoutInflater;
 
     public PersonAdapter(LayoutInflater layoutInflater) {
@@ -35,10 +36,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     @Override
     public void onBindViewHolder(PersonViewHolder holder, int position) {
-        Person person = personList.get(position);
-
-
-      holder.name.setText(personList.get(position).getName());
+        person = personList.get(position);
+        holder.name.setText(personList.get(position).getName());
         holder.surname.setText(personList.get(position).getName());
     }
 
@@ -60,9 +59,12 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
         public TextView name, surname;
 
+
         public PersonViewHolder(View itemView) {
             super(itemView);
 
+            name = (TextView)itemView.findViewById(R.id.person_name);
+            surname = (TextView)itemView.findViewById(R.id.person_surname);
         }
 
 

@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
         personAdapter = new PersonAdapter(getLayoutInflater());
         recycleViewList.setLayoutManager(new LinearLayoutManager(this));
         recycleViewList.setAdapter(personAdapter);
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == REQUEST_CODE_CREATE) {
                 if (data.hasExtra("data")) {
 
-                    personAdapter.addPerson(person);
+                     personAdapter.addPerson(person);
                     Toast.makeText(getApplication(), "Add person", Toast.LENGTH_SHORT).show();
                 }
             }
