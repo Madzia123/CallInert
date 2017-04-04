@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,12 +48,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_person:
-                Intent intent = new Intent(this, PersonActivity.class);
-                startActivityForResult(intent, REQUEST_CODE_CREATE);
+                add();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void add() {
+        Intent intent = new Intent(this, PersonActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_CREATE);
     }
 
 
@@ -62,11 +67,18 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             if (requestCode == REQUEST_CODE_CREATE) {
                 if (data.hasExtra("data")) {
+
+                    personAdapter.addPerson(person);
                     Toast.makeText(getApplication(), "Add person", Toast.LENGTH_SHORT).show();
                 }
             }
 
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    @OnClick(R.id.addButton)
+    public void onViewClicked() {
+        add();
     }
 }
