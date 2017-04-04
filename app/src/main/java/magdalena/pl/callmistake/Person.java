@@ -34,16 +34,18 @@ public class Person implements Parcelable
         this.description = description;
     }
 
-    public void setName(String name) {
+    public String setName(String name) {
         this.name = name;
+        return null;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
+    public String setSurname(String surname) {
         this.surname = surname;
+        return null;
     }
 
     public String getEmail() {

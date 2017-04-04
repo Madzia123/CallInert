@@ -58,12 +58,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_CREATE && resultCode == RESULT_OK) {
-            Toast.makeText(getApplication(),"Add person",Toast.LENGTH_SHORT).show();
 
-            personAdapter.addPerson(person);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_CODE_CREATE) {
+                if (data.hasExtra("data")) {
+                    Toast.makeText(getApplication(), "Add person", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            super.onActivityResult(requestCode, resultCode, data);
         }
-
-        super.onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -3,12 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+              android:orientation="horizontal"
     android:layout_height="match_parent"
     tools:context="magdalena.pl.callmistake.MainActivity">
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleViewList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    <Button
+    android:layout_width="match_parent"
+    android:layout_weight="1"
+    android:text="Dodaj Człowieka"
+    android:textAllCaps="false"
+    android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

@@ -36,10 +36,10 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     @Override
     public void onBindViewHolder(PersonViewHolder holder, int position) {
         Person person = personList.get(position);
-        String namePerson = person.getName();
-        String surnamePerson = person.getSurname();
 
-        holder.setText(namePerson, surnamePerson);
+
+      holder.name.setText(personList.get(position).getName());
+        holder.surname.setText(personList.get(position).getName());
     }
 
     @Override
@@ -57,23 +57,15 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     public class PersonViewHolder extends RecyclerView.ViewHolder {
 
-        public String namePerson, surnamePerson;
+
         public TextView name, surname;
 
         public PersonViewHolder(View itemView) {
             super(itemView);
 
-            name = (TextView) itemView.findViewById(R.id.nameTextView);
-            surname = (TextView) itemView.findViewById(R.id.surnameTextView);
         }
 
 
-        public void setText(String namePerson, String surnamePerson) {
-            this.namePerson = namePerson;
-            this.surnamePerson = surnamePerson;
-            name.setText(namePerson);
-            surname.setText(surnamePerson);
 
-        }
     }
 }

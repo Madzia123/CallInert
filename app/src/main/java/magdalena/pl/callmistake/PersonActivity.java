@@ -39,10 +39,13 @@ public class PersonActivity extends AppCompatActivity {
         String phone = phoneEditText.getText().toString();
         String description = editText.getText().toString();
 
-        Person person = new Person(name,surname, email, phone, description);
+        Person person = new Person(name, surname, email, phone, description);
+
         Intent intent = new Intent(this, Stage3Activity.class);
         intent.putExtra("person", person);
-        startActivityForResult(intent,3);
+        intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+        startActivity(intent);
+        finish();
 
     }
 }
