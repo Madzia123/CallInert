@@ -38,8 +38,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     public void onBindViewHolder(PersonViewHolder holder, int position) {
         person = personList.get(position);
 
-        holder.name.setText(person.getName());
-        holder.surname.setText(person.getSurname());
+        holder.name.setText("Magdalena");
+        holder.surname.setText("Kowalska");
     }
 
     @Override

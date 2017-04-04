@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             if (requestCode == REQUEST_CODE_CREATE) {
-                if (data.hasExtra("data")) {
+                if (data.hasExtra("person")) {
 
                      personAdapter.addPerson(person);
                     Toast.makeText(getApplication(), "Add person", Toast.LENGTH_SHORT).show();
@@ -76,8 +76,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.addButton)
-    public void onViewClicked() {
-        add();
-    }
+
 }

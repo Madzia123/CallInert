@@ -31,7 +31,7 @@ public class Stage3Activity extends AppCompatActivity {
     @OnClick(R.id.buttonNextButton)
     public void onClick() {
         Intent data = new Intent();
-        data.putExtra("data",  person);
+        data.putExtra("person",  person);
         setResult(RESULT_OK, data);
         finish();
     }
