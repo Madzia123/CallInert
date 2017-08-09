@@ -6,7 +6,7 @@
               android:layout_height="match_parent"
               android:orientation="horizontal"
               android:padding="10dp"
-              tools:context="magdalena.pl.callmistake.MainActivity">
+              tools:context="magdalena.pl.callmistake.activity.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleViewList"

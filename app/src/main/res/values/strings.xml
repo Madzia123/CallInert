@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CallMistake</string>
     <string name="DataPrson">DataPerson</string>
+    <string name="edytuj_kontakt">Edytuj kontakt</string>
+    <string name="usu_kontakt"><![CDATA[Usuń kontakt]]></string>
+    <string name="ustaw_jako_domy_lna">Ustaw jako domyślna</string>
 </resources>

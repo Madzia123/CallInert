@@ -5,11 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import magdalena.pl.callmistake.model.Person;
 
 /**
  * Created by magdalenadziesinska on 28.03.2017.
@@ -38,7 +39,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     public void onBindViewHolder(PersonViewHolder holder, int position) {
         person = personList.get(position);
 
-        holder.name.setText(person.getName());
+
         holder.surname.setText(person.getSurname());
     }
 
@@ -63,12 +64,9 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
         public PersonViewHolder(View itemView) {
             super(itemView);
-
             name = (TextView)itemView.findViewById(R.id.person_name);
             surname = (TextView)itemView.findViewById(R.id.person_surname);
         }
-
-
 
     }
 }

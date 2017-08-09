@@ -1,6 +1,5 @@
-package magdalena.pl.callmistake;
+package magdalena.pl.callmistake.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -8,6 +7,8 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import magdalena.pl.callmistake.model.Person;
+import magdalena.pl.callmistake.R;
 
 public class PersonActivity extends AppCompatActivity {
 
@@ -41,11 +42,7 @@ public class PersonActivity extends AppCompatActivity {
 
         Person person = new Person(name, surname, email, phone, description);
 
-        Intent intent = new Intent(this, Stage3Activity.class);
-        intent.putExtra("person", person);
-        intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-        startActivity(intent);
-        finish();
+
 
     }
 }

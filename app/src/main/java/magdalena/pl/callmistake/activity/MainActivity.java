@@ -1,4 +1,4 @@
-package magdalena.pl.callmistake;
+package magdalena.pl.callmistake.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +12,15 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+import magdalena.pl.callmistake.db.DatabaseHelper;
+import magdalena.pl.callmistake.model.Person;
+import magdalena.pl.callmistake.PersonAdapter;
+import magdalena.pl.callmistake.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final int REQUEST_CODE_CREATE = 2;
+    public DatabaseHelper databaseHelper;
     public PersonAdapter personAdapter;
-
-    public Person person;
     @BindView(R.id.recycleViewList)
     RecyclerView recycleViewList;
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_add, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -55,26 +56,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void add() {
-        Intent intent = new Intent(this, PersonActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_CREATE);
+        Intent intent = new Intent(MainActivity.this, Person.class);
+        startActivity(intent);
     }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_CODE_CREATE) {
-                if (data.hasExtra("person")) {
-
-                     personAdapter.addPerson(person);
-                    Toast.makeText(getApplication(), "Add person", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
 
 }

@@ -1,4 +1,4 @@
-package magdalena.pl.callmistake;
+package magdalena.pl.callmistake.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -8,23 +8,38 @@ import android.os.health.ServiceHealthStats;
  * Created by magdalenadziesinska on 28.03.2017.
  */
 
-public class Person implements Parcelable
-{
+public class Person {
 
+    private int id;
     private String name;
     private String surname;
     private String email;
     private String phone;
     private String description;
 
-    protected Person(Parcel in) {
-        name = in.readString();
-        surname = in.readString();
-        email = in.readString();
-        phone = in.readString();
-        description = in.readString();
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Person() {
+    }
+
+    public Person(int id, String name, String surname, String email, String phone, String description) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.description = description;
+    }
 
     public Person(String name, String surname, String email, String phone, String description) {
         this.name = name;
@@ -72,37 +87,4 @@ public class Person implements Parcelable
         this.description = description;
     }
 
-    public static Creator<Person> getCREATOR() {
-        return CREATOR;
-    }
-
-    public static final Creator<Person> CREATOR = new Creator<Person>() {
-        @Override
-        public Person createFromParcel(Parcel in) {
-            return new Person(in);
-        }
-
-        @Override
-        public Person[] newArray(int size) {
-            return new Person[size];
-        }
-    };
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeString(surname);
-        parcel.writeString(email);
-        parcel.writeString(phone);
-        parcel.writeString(description);
-    }
 }

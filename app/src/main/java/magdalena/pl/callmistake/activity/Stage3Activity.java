@@ -1,14 +1,14 @@
-package magdalena.pl.callmistake;
+package magdalena.pl.callmistake.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import magdalena.pl.callmistake.model.Person;
+import magdalena.pl.callmistake.R;
 
 public class Stage3Activity extends AppCompatActivity {
 
@@ -30,9 +30,6 @@ public class Stage3Activity extends AppCompatActivity {
 
     @OnClick(R.id.buttonNextButton)
     public void onClick() {
-        Intent data = new Intent();
-        data.putExtra("person",  person);
-        setResult(RESULT_OK, data);
-        finish();
+
     }
 }

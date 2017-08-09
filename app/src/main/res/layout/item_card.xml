@@ -3,15 +3,15 @@
                                     xmlns:app="http://schemas.android.com/apk/res-auto"
                                     xmlns:card_view="http://schemas.android.com/tools"
                                     android:id="@+id/cardView"
-                                    android:clickable="true"
-                                    android:foreground="?android:attr/selectableItemBackground"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:clickable="true"
+                                    android:foreground="?android:attr/selectableItemBackground"
                                     android:orientation="vertical"
                                     android:padding="20dp"
+                                    card_view:cardCornerRadius="4dp"
                                     card_view:cardUseCompatPadding="true"
-                                    card_view:contentPadding="8dp"
-                                    card_view:cardCornerRadius="4dp">
+                                    card_view:contentPadding="8dp">
 
 
     <RelativeLayout
@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/person_photo"
+            android:text="Magdalena"
             android:textSize="30sp"
             />
 
@@ -41,8 +42,18 @@
             android:id="@+id/person_surname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/person_name"
-            android:layout_toRightOf="@+id/person_photo"/>
+            android:layout_alignBottom="@+id/person_photo"
+            android:layout_toEndOf="@+id/person_photo"
+            android:layout_toRightOf="@+id/person_photo"
+            android:text="Dziesińska"/>
+
+        <ImageView
+            android:id="@+id/menuCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/person_name"
+            android:padding="20dp"
+            android:src="@drawable/ic_more"/>
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

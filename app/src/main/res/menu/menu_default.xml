@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/editPerson"
         android:title="@string/edytuj_kontakt"/>
     <item
         android:id="@+id/deletePerson"
         android:title="@string/usu_kontakt"/>
+    <item
+        android:id="@+id/defultCard"
+        android:title="@string/ustaw_jako_domy_lna"/>
 </menu>
