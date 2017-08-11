@@ -1,6 +1,7 @@
 package magdalena.pl.callmistake;
 
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +21,11 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     public List<Person> personList = new ArrayList<>();
 
-    Person person;
-    private LayoutInflater layoutInflater;
+    public Context mContex;
 
-    public PersonAdapter(LayoutInflater layoutInflater) {
-        this.layoutInflater = layoutInflater;
+    public PersonAdapter(Context mContex, List<Person> personList) {
+        this.mContex = mContex;
+        this.personList = personList;
     }
 
     @Override
@@ -37,22 +38,14 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     @Override
     public void onBindViewHolder(PersonViewHolder holder, int position) {
-        person = personList.get(position);
-
-
+        Person person = personList.get(position);
+        holder.name.setText(person.getName());
         holder.surname.setText(person.getSurname());
     }
 
     @Override
     public int getItemCount() {
         return personList.size();
-    }
-
-    public void addPerson(Person person) {
-
-        int position = getItemCount();
-        personList.add(position, person);
-        notifyDataSetChanged();
     }
 
 
@@ -64,8 +57,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
         public PersonViewHolder(View itemView) {
             super(itemView);
-            name = (TextView)itemView.findViewById(R.id.person_name);
-            surname = (TextView)itemView.findViewById(R.id.person_surname);
+            name = (TextView) itemView.findViewById(R.id.person_name);
+            surname = (TextView) itemView.findViewById(R.id.person_surname);
         }
 
     }

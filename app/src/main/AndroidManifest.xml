@@ -18,8 +18,6 @@
         </activity>
         <activity android:name=".activity.PersonActivity"/>
         <activity android:name=".activity.Stage3Activity"/>
-        <activity android:name=".activity.PersonDetailsActivity">
-        </activity>
     </application>
 
 </manifest>

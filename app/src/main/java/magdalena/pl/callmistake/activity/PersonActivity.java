@@ -1,5 +1,6 @@
 package magdalena.pl.callmistake.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -7,10 +8,14 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import magdalena.pl.callmistake.db.DatabaseHelper;
 import magdalena.pl.callmistake.model.Person;
 import magdalena.pl.callmistake.R;
 
 public class PersonActivity extends AppCompatActivity {
+
+
+    DatabaseHelper databaseHelper;
 
     @BindView(R.id.nameEditText)
     EditText nameEditText;
@@ -29,6 +34,8 @@ public class PersonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person);
         ButterKnife.bind(this);
+        databaseHelper = new DatabaseHelper(this);
+
     }
 
     @OnClick(R.id.buttonNextButton)
@@ -41,8 +48,11 @@ public class PersonActivity extends AppCompatActivity {
         String description = editText.getText().toString();
 
         Person person = new Person(name, surname, email, phone, description);
-
-
+        databaseHelper.addPerson(person);
+        Intent intent = new Intent(PersonActivity.this, Stage3Activity.class);
+        intent.putExtra("emailString", email);
+        startActivity(intent);
+        finish();
 
     }
 }

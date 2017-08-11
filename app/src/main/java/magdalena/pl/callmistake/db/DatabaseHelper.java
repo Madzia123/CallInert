@@ -37,9 +37,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_CONTACTS_TAABLE = "CREATE TABLE " + TABLE_PERSON + "(" + PERSON_ID + " INTEGER PRIMARY KEY," + PERSON_NAME + " TEXT,"
-                + PERSON_SURNAME + " TEXT," + PERSON_EMAIL + " TEXT," + PERSON_PHONE + " TEXT," + PERSON_DESCRIPTION + " TEXT," + ")";
-        db.execSQL(CREATE_CONTACTS_TAABLE);
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_PERSON + "(" + PERSON_ID + " INTEGER PRIMARY KEY," + PERSON_NAME + " TEXT,"
+                + PERSON_SURNAME + " TEXT," + PERSON_EMAIL + " TEXT," + PERSON_PHONE + " TEXT," + PERSON_DESCRIPTION + " TEXT" + ")";
+        db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
     @Override
@@ -50,9 +50,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //add Person
     public void addPerson(Person person) {
-        SQLiteDatabase db = getWritableDatabase();
 
+        SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
+
         values.put(PERSON_NAME, person.getName());
         values.put(PERSON_SURNAME, person.getSurname());
         values.put(PERSON_EMAIL, person.getEmail());
@@ -91,6 +92,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[]{String.valueOf(person.getId())});
         db.close();
     }
+
+    //wyświetlanie się ostanigo ID
+
 
     // Getting singl90e Person
     Person getPerson(int id) {
