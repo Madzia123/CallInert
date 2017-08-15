@@ -79,8 +79,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 person.setEmail(cursor.getString(3));
                 person.setPhone(cursor.getString(4));
                 person.setDescription(cursor.getString(5));
+                personList.add(person);
             } while (cursor.moveToNext());
         }
+        cursor.close();
         return personList;
     }
 
